@@ -1,0 +1,34 @@
+# (선택) Claude 자동 PR 리뷰
+#
+# ⚠️ 이 파일은 "선택 사항" 템플릿입니다. 그대로 쓰기 전에 아래를 반드시 하세요:
+#   1) GitHub Marketplace에서 공식 "Claude" GitHub 앱(또는 Claude Code Action) 설치
+#   2) 레포 Settings > Secrets and variables > Actions 에 ANTHROPIC_API_KEY 추가
+#   3) 공식 문서에서 최신 사용법/버전 확인 (액션 이름·옵션이 바뀔 수 있음)
+#      - Claude Code GitHub Action 문서를 참고하세요.
+#
+# 아래는 일반적인 형태의 예시이며, 최신 공식 설정과 다를 수 있습니다.
+# 자동 리뷰가 꼭 필요하지 않다면 이 파일 없이도 CI + 자동 머지는 동작합니다.
+
+name: Claude PR Review
+
+on:
+  pull_request:
+    types: [opened, synchronize]
+    branches: [dev]
+
+permissions:
+  contents: read
+  pull-requests: write
+
+jobs:
+  claude-review:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Claude review
+        uses: anthropics/claude-code-action@beta
+        with:
+          anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
+          # 아래 옵션들은 공식 문서 기준으로 조정하세요.
+          # mode: review
+          # direct_prompt: "이 PR을 오븐업 문서(기획/API/ERD) 기준으로 검토해줘."
