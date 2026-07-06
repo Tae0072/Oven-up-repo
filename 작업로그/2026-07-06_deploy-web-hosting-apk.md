@@ -35,3 +35,7 @@
 - 태블릿 소셜로그인 401: APK에 소셜 키 dart-define 누락 → mock 토큰 전송이 원인. 키 포함 재빌드로 해결
 - 결제 '개별 식별자 없음': PORTONE_STORE_ID/CHANNEL_KEY도 dart-define 누락 → 웹·APK 모두 키 포함 재빌드·재배포
 - 교훈: 클라이언트 빌드는 dart-define 7종 전부 필요 ? API_BASE_URL, KAKAO_NATIVE_APP_KEY, KAKAO_REST_API_KEY, NAVER_CLIENT_ID, PORTONE_STORE_ID, PORTONE_CHANNEL_KEY, PORTONE_CHANNEL_KEY_CARD (스크립트 D:\dev\build-ovenup-*.ps1에 반영됨)
+
+## 결제 UX 변경 (PR #48)
+- 결제수단 선택 UI 제거 ? 항상 이니시스(CARD 채널) 결제창 오픈 (이니시스 창 안에서 카드/삼성페이 선택 가능)
+- 웹 재배포 + 태블릿 APK 재설치 완료
