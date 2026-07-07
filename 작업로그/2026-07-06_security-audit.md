@@ -52,3 +52,9 @@
 - 설치 안내 페이지: https://ovenup.duckdns.org/app/ (다운로드 버튼 + '출처 허용' 안내 + 아이폰은 웹 안내)
 - QR 카드 이미지: 오븐업\오븐업_앱설치_QR.png (기계판독 검증 완료)
 - ?? 앱 업데이트 시 새 APK를 /opt/ovenup/app/ovenup.apk 로 다시 업로드해야 QR 설치본도 갱신됨
+
+## 추가: 아이폰(iOS) 대응 ? PWA (PR #57)
+- 아이폰은 사파리에서 ven-up.web.app → 공유 → '홈 화면에 추가'로 앱처럼 설치 (설치 안내 페이지에 순서 게시)
+- manifest: 이름 '오븐업 5VEN UP', 테마색 #1C9A53, 로고 기반 아이콘 세트(192/512/maskable/apple-touch 180)
+- iOS 메타태그(apple-mobile-web-app-capable 등) 추가 ? 전체화면 실행
+- 정식 앱스토어 등록은 추후: 클라우드 맥 빌드(Codemagic 등) + 애플 개발자 계정(연 $99) 필요
